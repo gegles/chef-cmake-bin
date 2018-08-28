@@ -19,7 +19,7 @@ ruby_block "get latest" do
     if node["cmake-bin"]["version"] == 'LATEST'
       vers = []
       IO.popen('git ls-remote -t https://github.com/Kitware/CMake.git').each do |line|
-        if m = line.match(/^\S+\s+refs\/tags\/v(\d+.\d+.\d+)$/)
+        if m = line.match(/^\S+\s+refs\/tags\/v(\d+\.\d+\.\d+)$/)
           vers.push(Gem::Version.new(m[1]))
         end
       end
